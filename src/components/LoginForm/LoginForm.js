@@ -6,10 +6,12 @@ import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import {loggedIn} from "../../redux/authSlice";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 export default function FormPropsTextFields() {
     const dispatch = useDispatch();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,6 +22,8 @@ export default function FormPropsTextFields() {
         }))
         setLogin('');
         setPassword('');
+        navigate('/')
+
     }
 
     return (

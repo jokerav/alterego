@@ -9,7 +9,7 @@ function App() {
       <div>
       <ResponsiveAppBar/>
       <Routes>
-        <Route path='/' element={<FormPropsTextFields/>}/>
+        <Route path='/login' element={<FormPropsTextFields/>}/>
         <Route path='/news' element={<p>NEWS</p>}/>
         <Route path='/profile' element={<p>PROFILE</p>}/>
       </Routes>

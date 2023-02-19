@@ -16,6 +16,7 @@ import {useDispatch} from "react-redux";
 import {loggedOut} from "../../redux/authSlice";
 import {getLoggedIn} from "../../redux/selectors";
 import {useSelector} from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const pages = ['Main', 'News'];
 const settings = ['Profile', 'Logout'];
@@ -25,6 +26,7 @@ function ResponsiveAppBar() {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const dispatch = useDispatch();
     const isLogin = useSelector(getLoggedIn);
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -141,7 +143,7 @@ function ResponsiveAppBar() {
                                 <Avatar>A</Avatar>
                             </IconButton>
                         </Tooltip>:
-                            <Button variant="contained">Log In</Button>
+                            <Button variant="contained" onClick={()=>navigate('/login')}>Log In</Button>
                         }
 
                         <Menu
