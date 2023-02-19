@@ -1,16 +1,15 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
 import FormControl from '@mui/material/FormControl';
-
 import Button from '@mui/material/Button';
-
 import { useDispatch } from 'react-redux';
 import {loggedIn} from "../../redux/authSlice";
-
+import {useState} from "react";
 export default function FormPropsTextFields() {
     const dispatch = useDispatch();
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,12 +18,8 @@ export default function FormPropsTextFields() {
             login: data.get("loginInput"),
             password: data.get("passwordInput")
         }))
-        // console.log({
-        //     login: data.get("loginInput"),
-        //     password: data.get("passwordInput")
-        // })
-
-
+        setLogin('');
+        setPassword('');
     }
 
     return (
@@ -44,6 +39,8 @@ export default function FormPropsTextFields() {
                         id="loginInput"
                         name="loginInput"
                         label="login"
+                        onChange={e => setLogin(e.target.value)}
+                        value={login}
                     />
                     <TextField
                         required
@@ -52,6 +49,8 @@ export default function FormPropsTextFields() {
                         label="Password"
                         type="password"
                         autoComplete="current-password"
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
                     />
                     <Button variant="contained" type='submit'>Log In</Button>
                 </FormControl>

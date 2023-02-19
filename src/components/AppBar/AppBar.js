@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import {useDispatch} from "react-redux";
+import {loggedOut} from "../../redux/authSlice";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Logout'];
@@ -19,6 +21,7 @@ const settings = ['Profile', 'Logout'];
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const dispatch = useDispatch();
 
 
     const handleOpenNavMenu = (event) => {
@@ -38,6 +41,7 @@ function ResponsiveAppBar() {
 
         if (e.target.childNodes[0].nodeValue === "Logout"){
             console.log('LOG OUT!')
+            dispatch(loggedOut());
         }
     };
 
