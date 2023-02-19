@@ -22,7 +22,7 @@ export default function FormPropsTextFields() {
         }))
         setLogin('');
         setPassword('');
-        navigate('/')
+        navigate('/profile')
 
     }
 
