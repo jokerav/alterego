@@ -4,6 +4,7 @@ import {Routes, Route} from "react-router-dom";
 import ResponsiveAppBar from "./components/AppBar/AppBar";
 import FormPropsTextFields from "./components/LoginForm/LoginForm";
 import ProtectedRoute from "./Routes/protectedRoute";
+import PrivateRoute from "./Routes/privateRoute";
 
 function App() {
     return (
@@ -15,7 +16,10 @@ function App() {
                             <FormPropsTextFields/>
                         </ProtectedRoute>}/>
                 <Route path='/news' element={<p>NEWS</p>}/>
-                <Route path='/profile' element={<p>PROFILE</p>}/>
+                <Route path='/profile' element={
+                    <PrivateRoute>
+                        <p>PROFILE</p>
+                    </PrivateRoute>}/>
             </Routes>
         </div>
     );
