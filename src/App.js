@@ -21,6 +21,7 @@ function App() {
                     <PrivateRoute>
                         <p>PROFILE</p>
                     </PrivateRoute>}/>
+                <Route path="*" element={<p>ErrorPage</p>}/>
             </Routes>
         </div>
     );
