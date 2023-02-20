@@ -1,34 +1,25 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import authSlice from './authSlice';
+import {fakeNewsAPI} from "./fakeNewsAPI";
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
     persistReducer,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-    PURGE,
-    REGISTER,
 } from 'redux-persist';
+
 const authPersistConfig = {
     key: 'auth',
     storage,
 };
-const middleware = [
-    ...getDefaultMiddleware({
-        serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
-    }),
-];
 
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
+        [fakeNewsAPI.reducerParh]: fakeNewsAPI.reducerParh,
     },
-    middleware,
-
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(fakeNewsAPI.middleware),
 });
+
 const persistor = persistStore(store);
-export { store, persistor };
+export {store, persistor};

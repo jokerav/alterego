@@ -36,7 +36,6 @@ function ResponsiveAppBar() {
 
     const handleCloseNavMenu = (e) => {
         setAnchorElNav(null);
-        console.log(e.target.innerText);
         if (e.target.innerText === 'MAIN'){
             navigate('/')
         }
