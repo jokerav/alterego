@@ -8,6 +8,7 @@ export const fakeNewsAPI = createApi({
     endpoints: (builder) => ({
         getNews: builder.query({
             query: ()=>'/posts',
+            method: "GET",
             providesTags: ['news'],
         })
     })

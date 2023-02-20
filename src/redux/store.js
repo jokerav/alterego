@@ -15,7 +15,7 @@ const authPersistConfig = {
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
-        [fakeNewsAPI.reducerParh]: fakeNewsAPI.reducerParh,
+        [fakeNewsAPI.reducerPath]: fakeNewsAPI.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(fakeNewsAPI.middleware),
