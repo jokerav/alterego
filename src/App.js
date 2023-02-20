@@ -11,10 +11,11 @@ function App() {
         <div>
             <ResponsiveAppBar/>
             <Routes>
-                    <Route path='/login' element={
-                        <ProtectedRoute>
-                            <FormPropsTextFields/>
-                        </ProtectedRoute>}/>
+                <Route path='/' element={<p>Main page</p>}/>
+                <Route path='/login' element={
+                    <ProtectedRoute>
+                        <FormPropsTextFields/>
+                    </ProtectedRoute>}/>
                 <Route path='/news' element={<p>NEWS</p>}/>
                 <Route path='/profile' element={
                     <PrivateRoute>

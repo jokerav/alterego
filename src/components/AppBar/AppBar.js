@@ -12,10 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {loggedOut} from "../../redux/authSlice";
 import {getLoggedIn} from "../../redux/selectors";
-import {useSelector} from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const pages = ['Main', 'News'];
@@ -35,14 +34,25 @@ function ResponsiveAppBar() {
         setAnchorElUser(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = (e) => {
         setAnchorElNav(null);
+        console.log(e.target.innerText);
+        if (e.target.innerText === 'MAIN'){
+            navigate('/')
+        }
+        if ( e.target.innerText === "NEWS"){
+            navigate("/news")
+        }
     };
 
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);
-        if (e.target.childNodes[0].nodeValue === "Logout") {
+        if ( e.currentTarget.tabIndex === -1) {
             dispatch(loggedOut());
+            navigate('/')
+        }
+        if (e.currentTarget.tabIndex === 0){
+            navigate('/profile')
         }
     };
 

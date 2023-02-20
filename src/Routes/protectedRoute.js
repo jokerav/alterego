@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from 'react-router-dom';
 import {getLoggedIn} from "../redux/selectors";
 import { useSelector } from 'react-redux';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 const ProtectedRoute = ({ children }) => {
     const isLoggedin = useSelector(getLoggedIn);
     if (isLoggedin) {
@@ -11,6 +11,6 @@ const ProtectedRoute = ({ children }) => {
     return children;
 };
 export default ProtectedRoute;
-// ProtectedRoute.propTypes = {
-//     children: PropTypes.node,
-// };
+ProtectedRoute.propTypes = {
+    children: PropTypes.node,
+};
