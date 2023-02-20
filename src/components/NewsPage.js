@@ -1,17 +1,15 @@
 import {useGetNewsQuery} from "../redux/fakeNewsAPI";
+import OutlinedCard from "./OutlinedCard";
 
 const NewsPage = () => {
-    const {data: news=[], isError, isLoading} = useGetNewsQuery();
+    const {data: news = [], isError, isLoading} = useGetNewsQuery();
     return (
         <div>
-            <p>This is News Page</p>
-            <ul>
             {isLoading && <p>Завантажуємо...</p>}
             {isError && <p>Помилочка...</p>}
-            {news.length>0 && news.map(
-                newsItem=>(<li key={newsItem.id}>{newsItem.title}</li>)
+            {news.length > 0 && news.map(
+                (newsItem) => (<OutlinedCard key={newsItem.id} newsItem={newsItem}/>)
             )}
-                </ul>
         </div>
     )
 }
