@@ -15,8 +15,7 @@ const authPersistConfig = {
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
-        [filmsAPI.renderPath]: filmsAPI.reducer
-
+        [filmsAPI.reducerPath]: filmsAPI.reducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(filmsAPI.middleware),

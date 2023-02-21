@@ -6,17 +6,17 @@ export const filmsAPI = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://api.themoviedb.org/3',
     }),
+
     endpoints:(build) =>({
         getTrandingMovies:build.query({
             query: () => `/trending/movie/week?api_key=${API_KEY}&media_type=movie`,
         }),
-        getPopulartMovies:build.query({
+        getPopularMovies:build.query({
             query:()=>`/movie/popular?api_key=${API_KEY}`,
         })
-
     })
 })
 export const {
     useGetTrandingMoviesQuery,
-    useGetPopulartMoviesQuery
+    useGetPopularMoviesQuery
 } = filmsAPI
