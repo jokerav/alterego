@@ -14,7 +14,7 @@ export default function MediaCard({movie}) {
             <CardMedia
                 sx={{ height: 140 }}
                 image={`${imgPath}${backdrop_path}`}
-                title="green iguana"
+                title={title}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
