@@ -6,18 +6,19 @@ import FormPropsTextFields from "./components/LoginForm/LoginForm";
 import PopularPage from "./components/PopularPage"
 import ProtectedRoute from "./Routes/protectedRoute";
 import PrivateRoute from "./Routes/privateRoute";
+import InTrandsPage from "./components/InTrandPage";
 
 function App() {
     return (
         <div>
             <ResponsiveAppBar/>
             <Routes>
-                <Route path='/' element={<p>Main page</p>}/>
+                <Route path='/' element={<PopularPage/>}/>
                 <Route path='/login' element={
                     <ProtectedRoute>
                         <FormPropsTextFields/>
                     </ProtectedRoute>}/>
-                <Route path='/popular' element={<PopularPage/>}/>
+                <Route path='/news' element={<InTrandsPage/>}/>
                 <Route path='/profile' element={
                     <PrivateRoute>
                         <p>PROFILE</p>

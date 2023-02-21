@@ -17,7 +17,7 @@ import {loggedOut} from "../../redux/authSlice";
 import {getLoggedIn} from "../../redux/selectors";
 import { useNavigate } from "react-router-dom";
 
-const pages = ['Main', 'Popular'];
+const pages = ['Main', 'News'];
 const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -39,8 +39,8 @@ function ResponsiveAppBar() {
         if (e.target.innerText === 'MAIN'){
             navigate('/')
         }
-        if ( e.target.innerText === "POPULAR"){
-            navigate("/popular")
+        if ( e.target.innerText === "NEWS"){
+            navigate("/news")
         }
     };
 
