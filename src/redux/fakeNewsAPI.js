@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const fakeNewsAPI = createApi({
     reducerPath: 'fakeNewsAPI',
     baseQuery:fetchBaseQuery({
-        baseUrl:'https://jsonplaceholder.typicode.com/',
+        baseUrl:'https://jsonplaceholder.typicode.com',
     }),
     tagTypes:['news'],
     endpoints: (builder) => ({

@@ -6,6 +6,7 @@ import {
     persistStore,
     persistReducer,
 } from 'redux-persist';
+import {filmsAPI} from "./filmsAPI";
 
 const authPersistConfig = {
     key: 'auth',
@@ -15,10 +16,12 @@ const authPersistConfig = {
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
-        [fakeNewsAPI.reducerPath]: fakeNewsAPI.reducer,
+        // [fakeNewsAPI.reducerPath]: fakeNewsAPI.reducer,
+        [filmsAPI.renderPath]: filmsAPI.reducer
+
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(fakeNewsAPI.middleware),
+        getDefaultMiddleware().concat(filmsAPI.middleware),
 });
 
 const persistor = persistStore(store);
