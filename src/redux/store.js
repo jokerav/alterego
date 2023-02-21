@@ -1,6 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authSlice from './authSlice';
-// import {fakeNewsAPI} from "./fakeNewsAPI";
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
