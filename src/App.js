@@ -3,7 +3,7 @@ import React from 'react';
 import {Routes, Route} from "react-router-dom";
 import ResponsiveAppBar from "./components/AppBar/AppBar";
 import FormPropsTextFields from "./components/LoginForm/LoginForm";
-import NewsPage from "./components/NewsPage"
+import PopularPage from "./components/PopularPage"
 import ProtectedRoute from "./Routes/protectedRoute";
 import PrivateRoute from "./Routes/privateRoute";
 
@@ -17,7 +17,7 @@ function App() {
                     <ProtectedRoute>
                         <FormPropsTextFields/>
                     </ProtectedRoute>}/>
-                <Route path='/news' element={<NewsPage/>}/>
+                <Route path='/popular' element={<PopularPage/>}/>
                 <Route path='/profile' element={
                     <PrivateRoute>
                         <p>PROFILE</p>

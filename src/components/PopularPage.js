@@ -2,7 +2,7 @@ import {useGetPopularMoviesQuery} from "../redux/filmsAPI"
 import MediaCard from "./MediaCard";
 import Grid from '@mui/material/Grid';
 
-const NewsPage = () => {
+const PopularPage = () => {
     const {data = [], isError, isLoading} = useGetPopularMoviesQuery();
     console.log(data.results)
     return (
@@ -27,4 +27,4 @@ const NewsPage = () => {
 
 }
 
-export default NewsPage
+export default PopularPage
