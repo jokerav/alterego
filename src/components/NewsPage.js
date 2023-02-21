@@ -1,8 +1,6 @@
-import {useGetNewsQuery} from "../redux/fakeNewsAPI";
-import OutlinedCard from "./OutlinedCard";
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import {useGetMoviesQuery} from "../redux/filmsAPI"
+
+import {useGetTrandingMoviesQuery} from "../redux/filmsAPI"
+import {useGetPopulartMoviesQuery} from "../redux/filmsAPI";
 
 
 const NewsPage = () => {
@@ -18,7 +16,8 @@ const NewsPage = () => {
 //             )}
 //         </div>
 //     )
-    const {data} = useGetMoviesQuery();
+    const {data} = useGetTrandingMoviesQuery();
+    // const  {data} = useGetPopulartMoviesQuery();
     console.log(data)
     return(
         <p>Тут будуть фільми</p>

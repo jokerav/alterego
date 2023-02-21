@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authSlice from './authSlice';
-import {fakeNewsAPI} from "./fakeNewsAPI";
+// import {fakeNewsAPI} from "./fakeNewsAPI";
 import storage from 'redux-persist/lib/storage';
 import {
     persistStore,
@@ -16,7 +16,6 @@ const authPersistConfig = {
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
-        // [fakeNewsAPI.reducerPath]: fakeNewsAPI.reducer,
         [filmsAPI.renderPath]: filmsAPI.reducer
 
     },
