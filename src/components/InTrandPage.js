@@ -7,6 +7,7 @@ const InTrandsPage = () => {
     console.log(data.results)
     return (
         <div>
+            <h2 style={{textAlign:"center"}}>Now in trands</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
             <Grid container spacing={3}>

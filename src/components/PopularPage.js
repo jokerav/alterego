@@ -6,6 +6,7 @@ const PopularPage = () => {
     const {data = [], isError, isLoading} = useGetPopularMoviesQuery();
     return (
         <div>
+            <h2 style={{textAlign:"center"}}>Popular films</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
             <Grid container spacing={3}>
