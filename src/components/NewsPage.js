@@ -8,7 +8,7 @@ const NewsPage = () => {
         <div>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
-            {data?.results?.length>0 && data.results.map(movieItem=><MediaCard key={movieItem.id}/>)}
+            {data?.results?.length>0 && data.results.map(movieItem=><MediaCard key={movieItem.id} movie={movieItem}/>)}
         </div>
     )
 

@@ -1,5 +1,4 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-
 const API_KEY = '9e5cf4f45ae60b7760108794dc459813';
 export const filmsAPI = createApi({
     reducerPath: "filmsAPI",
@@ -12,10 +11,14 @@ export const filmsAPI = createApi({
         }),
         getPopularMovies:build.query({
             query:()=>`/movie/popular?api_key=${API_KEY}`,
+        }),
+        getMovieDetail:build.query({
+            query: movieId=> `movie/${movieId}?api_key=9e5cf4f45ae60b7760108794dc459813&language=en-US`
         })
     })
 })
 export const {
     useGetTrandingMoviesQuery,
-    useGetPopularMoviesQuery
+    useGetPopularMoviesQuery,
+    useGetMovieDetailQuery
 } = filmsAPI
