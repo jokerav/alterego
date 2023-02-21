@@ -2,7 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 const USER = {login: "admin", password: "12345"}
 const initialState = {
         login: null,
-        isLoggedin: false,
+    isLoggedin: false,
 
 };
 const authSlice = createSlice({
@@ -10,9 +10,10 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         loggedIn(state, {payload}) {
-            if (payload.login === USER.login && payload.password === USER.password) {
+            const {login, password} = payload;
+            if (login === USER.login && password === USER.password) {
                 state.isLoggedin = true;
-                state.login = payload.login;
+                state.login = login;
             }
         },
         loggedOut(state, _) {
