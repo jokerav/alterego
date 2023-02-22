@@ -6,7 +6,7 @@ import FormPropsTextFields from "./components/LoginForm/LoginForm";
 import PopularPage from "./components/PopularPage"
 import ProtectedRoute from "./Routes/protectedRoute";
 import PrivateRoute from "./Routes/privateRoute";
-import InTrandsPage from "./components/topRatedPage";
+import TopRatedPage from "./components/topRatedPage";
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                     <ProtectedRoute>
                         <FormPropsTextFields/>
                     </ProtectedRoute>}/>
-                <Route path='/news' element={<InTrandsPage/>}/>
+                <Route path='/news' element={<TopRatedPage/>}/>
                 <Route path='/profile' element={
                     <PrivateRoute>
                         <p>PROFILE</p>
