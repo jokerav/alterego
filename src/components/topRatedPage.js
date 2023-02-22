@@ -7,13 +7,15 @@ import Pagination from "@mui/material/Pagination";
 import {getTopRatedPage} from "../redux/selectors";
 
 const TopatedPage = () => {
+
     const dispatch = useDispatch();
+
     const page = useSelector(getTopRatedPage);
     const onPaginationChange=(page)=>{
         dispatch(setIntrandPage({page}));
     }
-    const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
 
+    const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
 
     return (
         <div>

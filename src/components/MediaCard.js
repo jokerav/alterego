@@ -7,8 +7,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function MediaCard({movie}) {
-    const {title, overview, backdrop_path} = movie;
+    const {title, overview, backdrop_path, id} = movie;
     const imgPath = 'https://image.tmdb.org/t/p/w500';
+    const addToFavorite=id=>{
+        // console.log(id)
+    }
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia
@@ -25,8 +28,8 @@ export default function MediaCard({movie}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small">Details</Button>
+                <Button size="small" onClick={addToFavorite(id)}>To Favorite</Button>
             </CardActions>
         </Card>
     );

@@ -7,13 +7,13 @@ export const filmsAPI = createApi({
     }),
     endpoints:(build) =>({
         getTopRatedMovies:build.query({
-            query: (page) => `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
+            query: (page) => `/movie/top_rated?api_key=${API_KEY}page=${page}&language=en-US&`,
         }),
         getPopularMovies:build.query({
-            query:(page) =>`/movie/popular?api_key=${API_KEY}&page=${page}`,
+            query:(page) =>`/movie/popular?api_key=${API_KEY}&page=${page}&language=en-US`,
         }),
         getMovieDetail:build.query({
-            query: movieId=> `movie/${movieId}?api_key=9e5cf4f45ae60b7760108794dc459813&language=en-US`
+            query: movieId=> `movie/${movieId}?api_key=${API_KEY}&language=en-US`
         })
     })
 })
