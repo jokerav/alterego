@@ -7,6 +7,7 @@ import {
 } from 'redux-persist';
 import {filmsAPI} from "./filmsAPI";
 import pagesSlice from './pagesSlice';
+import favoriteSlise from './favoriteSlise'
 
 const authPersistConfig = {
     key: 'auth',
@@ -17,6 +18,7 @@ const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
         pagesSlice: pagesSlice,
+        favoriteSlise,
         [filmsAPI.reducerPath]: filmsAPI.reducer
     },
     middleware: (getDefaultMiddleware) =>
