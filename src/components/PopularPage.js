@@ -30,15 +30,13 @@ const PopularPage = () => {
                         )
                     })}
             </Grid>
-
             <Pagination
                 count={10}
                 color="primary"
                 defaultPage={page}
+                sx={{paddingTop:'40px', paddingBottom:'30px'}}
                 onChange={(_,page)=>onPaginationChange(page)}
             />
-
-
         </div>
     )
 }
