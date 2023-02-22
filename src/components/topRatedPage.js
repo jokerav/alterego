@@ -2,7 +2,7 @@ import {useGetTopRatedMoviesQuery} from "../redux/filmsAPI"
 import MediaCard from "./MediaCard";
 import Grid from '@mui/material/Grid';
 import Pagination from "@mui/material/Pagination";
-import {setIntrandPage} from "../redux/pagesSlice";
+import {setTopRatedPage} from "../redux/pagesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getTopRatedPage} from "../redux/selectors";
 
@@ -11,7 +11,7 @@ const TopRatedPage = () => {
 
     const page = useSelector(getTopRatedPage);
     const onPaginationChange=(page)=>{
-        dispatch(setIntrandPage({page}));
+        dispatch(setTopRatedPage({page}));
     }
 
     const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);

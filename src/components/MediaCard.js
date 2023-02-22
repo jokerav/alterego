@@ -5,13 +5,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import addToFavorite from "../helpers/putToFavorite";
 
 export default function MediaCard({movie}) {
     const {title, overview, backdrop_path, id} = movie;
     const imgPath = 'https://image.tmdb.org/t/p/w500';
-    const addToFavorite=id=>{
-        console.log(id)
-    }
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardMedia

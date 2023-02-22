@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 const initialState = {
     popularPage: 1,
-    inTrandPage: 1,
+    topRatedPage: 1,
 };
 const pagesSlice = createSlice({
     name:"pages",
@@ -12,11 +12,11 @@ const pagesSlice = createSlice({
             const {page} = payload;
             state.popularPage = page;
         },
-        setIntrandPage(state, {payload}){
+        setTopRatedPage(state, {payload}){
             const {page} = payload;
-            state.inTrandPage = page;
+            state.topRatedPage = page;
         }
     }
 })
-export const {setPopularPage, setIntrandPage} = pagesSlice.actions;
+export const {setPopularPage, setTopRatedPage} = pagesSlice.actions;
 export default pagesSlice.reducer
