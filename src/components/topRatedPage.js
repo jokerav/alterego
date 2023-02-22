@@ -5,18 +5,18 @@ import {useDispatch, useSelector} from "react-redux";
 import {setIntrandPage} from "../redux/pagesSlice";
 import Pagination from "@mui/material/Pagination";
 import {getInTrandPage} from "../redux/selectors";
-
-const InTrandsPage = () => {
+const TopatedPage = () => {
     const dispatch = useDispatch();
-    const {data = [], isError, isLoading} = useGetTrandingMoviesQuery();
+    const page = useSelector(getInTrandPage);
     const onPaginationChange=(page)=>{
         dispatch(setIntrandPage({page}));
     }
-    const page = useSelector(getInTrandPage);
-    console.log(page);
+    const {data = [], isError, isLoading} = useGetTrandingMoviesQuery(page);
+
+
     return (
         <div>
-            <h2 style={{textAlign:"center"}}>Now in trands</h2>
+            <h2 style={{textAlign:"center"}}>Top rated movies</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
             <Grid container spacing={3}>
@@ -42,4 +42,4 @@ const InTrandsPage = () => {
         </div>
     )
 }
-export default InTrandsPage
+export default TopatedPage

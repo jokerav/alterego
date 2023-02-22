@@ -7,10 +7,10 @@ export const filmsAPI = createApi({
     }),
     endpoints:(build) =>({
         getTrandingMovies:build.query({
-            query: () => `/trending/movie/week?api_key=${API_KEY}&media_type=movie`,
+            query: (page) => `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
         }),
         getPopularMovies:build.query({
-            query:()=>`/movie/popular?api_key=${API_KEY}`,
+            query:(page) =>`/movie/popular?api_key=${API_KEY}&page=${page}`,
         }),
         getMovieDetail:build.query({
             query: movieId=> `movie/${movieId}?api_key=9e5cf4f45ae60b7760108794dc459813&language=en-US`

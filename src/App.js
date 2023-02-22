@@ -6,7 +6,7 @@ import FormPropsTextFields from "./components/LoginForm/LoginForm";
 import PopularPage from "./components/PopularPage"
 import ProtectedRoute from "./Routes/protectedRoute";
 import PrivateRoute from "./Routes/privateRoute";
-import InTrandsPage from "./components/InTrandPage";
+import InTrandsPage from "./components/topRatedPage";
 
 function App() {
     return (

@@ -8,11 +8,11 @@ import {getPopularPage} from "../redux/selectors";
 
 const PopularPage = () => {
     const dispatch = useDispatch();
-    const {data = [], isError, isLoading} = useGetPopularMoviesQuery();
+    const page = useSelector(getPopularPage)
+    const {data = [], isError, isLoading} = useGetPopularMoviesQuery(page);
     const onPaginationChange=(page)=>{
         dispatch(setPopularPage({page}));
     }
-    const page = useSelector(getPopularPage);
     console.log(page);
     return (
         <div>
