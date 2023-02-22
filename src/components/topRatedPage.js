@@ -1,17 +1,18 @@
-import {useGetTrandingMoviesQuery} from "../redux/filmsAPI"
+import {useGetTopRatedMoviesQuery} from "../redux/filmsAPI"
 import MediaCard from "./MediaCard";
 import Grid from '@mui/material/Grid';
 import {useDispatch, useSelector} from "react-redux";
 import {setIntrandPage} from "../redux/pagesSlice";
 import Pagination from "@mui/material/Pagination";
-import {getInTrandPage} from "../redux/selectors";
+import {getTopRatedPage} from "../redux/selectors";
+
 const TopatedPage = () => {
     const dispatch = useDispatch();
-    const page = useSelector(getInTrandPage);
+    const page = useSelector(getTopRatedPage);
     const onPaginationChange=(page)=>{
         dispatch(setIntrandPage({page}));
     }
-    const {data = [], isError, isLoading} = useGetTrandingMoviesQuery(page);
+    const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
 
 
     return (
