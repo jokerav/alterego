@@ -25,7 +25,7 @@ function App() {
                     <PrivateRoute>
                         <ProfilePage/>
                     </PrivateRoute>}/>
-                <Route path="movies/:movieId" element={<MovieDetails />}/>
+                <Route path="movies/:movieId" element={<MovieDetails/>}/>
                 <Route path="*" element={<p>ErrorPage</p>}/>
             </Routes>
         </div>
