@@ -7,7 +7,9 @@ const MovieDetails = () =>{
     const { movieId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-    const {data:movie = [], isError, isLoading} = useGetMovieDetailQuery(movieId);
+    const {data:movie = []
+        // , isError, isLoading
+    } = useGetMovieDetailQuery(movieId);
     const backLinkHref = location?.state?.from ?? '/';
     const imgPath = 'https://image.tmdb.org/t/p/w500';
     const { title, poster_path, overview } = movie;
@@ -21,8 +23,6 @@ const MovieDetails = () =>{
             />
             <p>{overview}</p>
             <Button onClick={()=>navigate(backLinkHref)}>Back</Button>
-
-
         </div>
     )
 }
