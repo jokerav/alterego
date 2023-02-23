@@ -1,4 +1,4 @@
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import {getFavorite} from '../redux/selectors'
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
@@ -13,10 +13,13 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
+import {removeFromFavorite} from "../redux/favoriteSlise";
+
 const Demo = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
 }));
 const ProfilePage = () => {
+    const dispatch = useDispatch();
     const favorite = useSelector(getFavorite);
     return (
         <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
@@ -32,7 +35,7 @@ const ProfilePage = () => {
                                 <ListItem
                                     secondaryAction={
                                         <IconButton edge="end" aria-label="delete">
-                                            <DeleteIcon />
+                                            <DeleteIcon onClick={()=>dispatch(removeFromFavorite({id:movie.id}))}/>
                                         </IconButton>
                                     }
                                 >
