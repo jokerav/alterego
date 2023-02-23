@@ -13,23 +13,15 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
+import TurnedInIcon from '@mui/icons-material/TurnedIn';
 
 const ProfilePage = () => {
     const favorite = useSelector(getFavorite);
-    console.log(favorite);
-    function generate(element) {
-        return favorite.map((value) =>
-            React.cloneElement(element, {
-                key: value,
-            }),
-        );
-    }
+
     const Demo = styled('div')(({ theme }) => ({
         backgroundColor: theme.palette.background.paper,
     }));
-    const [dense, setDense] = React.useState(false);
     return (
         <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
             <Grid container spacing={2}>
@@ -39,8 +31,8 @@ const ProfilePage = () => {
                     </Typography>
                     {favorite.length>0?
                     <Demo>
-                        <List dense={dense}>
-                            {generate(
+                        <List>
+                            {favorite.map(movie=>
                                 <ListItem
                                     secondaryAction={
                                         <IconButton edge="end" aria-label="delete">
@@ -50,14 +42,16 @@ const ProfilePage = () => {
                                 >
                                     <ListItemAvatar>
                                         <Avatar>
-                                            <FolderIcon />
+                                            <TurnedInIcon />
                                         </Avatar>
                                     </ListItemAvatar>
                                     <ListItemText
-                                        primary="Single-line item"
+                                        primary={movie.title}
                                     />
-                                </ListItem>,
+                                </ListItem>
                             )}
+
+
                         </List>
                     </Demo>:
                         <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
