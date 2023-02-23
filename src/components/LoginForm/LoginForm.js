@@ -8,14 +8,13 @@ import {loggedIn} from "../../redux/authSlice";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
 let errorInput = false;
 export default function FormPropsTextFields() {
     const dispatch = useDispatch();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
@@ -33,7 +32,6 @@ export default function FormPropsTextFields() {
         setPassword('');
         navigate('/profile')
     }
-
 
     return (
         <Box
