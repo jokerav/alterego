@@ -17,8 +17,8 @@ const authPersistConfig = {
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
-        favoriteSlise,
-        pagesSlice: pagesSlice,
+        favoriteSlise:favoriteSlise,
+        pagesSlice,
         [filmsAPI.reducerPath]: filmsAPI.reducer
     },
     middleware: (getDefaultMiddleware) =>

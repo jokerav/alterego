@@ -8,6 +8,7 @@ import ProtectedRoute from "./Routes/protectedRoute";
 import PrivateRoute from "./Routes/privateRoute";
 import TopRatedPage from "./components/topRatedPage";
 import ProfilePage from "./components/profile";
+import MovieDetails from "./components/MovieDetails";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <PrivateRoute>
                         <ProfilePage/>
                     </PrivateRoute>}/>
+                <Route path="movies/:movieId" element={<MovieDetails />}/>
                 <Route path="*" element={<p>ErrorPage</p>}/>
             </Routes>
         </div>

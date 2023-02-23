@@ -8,9 +8,12 @@ import Typography from '@mui/material/Typography';
 import {addTofavorite, removeFromFavorite} from "../redux/favoriteSlise";
 import {useDispatch, useSelector} from "react-redux";
 import {getFavorite, getLoggedIn} from "../redux/selectors";
+import { useLocation, useNavigate} from 'react-router-dom';
 
 export default function MediaCard({movie}) {
+    const location = useLocation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const favorite = useSelector(getFavorite);
     const isLoggedIn = useSelector(getLoggedIn);
     const {title, overview, backdrop_path, id} = movie;
@@ -36,7 +39,6 @@ export default function MediaCard({movie}) {
         dispatch(removeFromFavorite({id}))
     }
 
-
     return (
         <Card sx={{maxWidth: 345}}>
             <CardMedia
@@ -53,7 +55,9 @@ export default function MediaCard({movie}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Details</Button>
+                <Button size="small" onClick={()=>navigate(`/movies/${movie.id}`,{state:{ from: location }})}>
+                    Details
+                </Button>
                 {isLoggedIn && (
                     chekMovieInFavorite(id) ?
                         <Button size='small' onClick={() => removeMovie(id)}>Delete from favorite</Button> :

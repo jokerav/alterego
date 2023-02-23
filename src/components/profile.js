@@ -14,12 +14,16 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import {removeFromFavorite} from "../redux/favoriteSlise";
+import {useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Demo = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
 }));
 const ProfilePage = () => {
     const dispatch = useDispatch();
+    const location = useLocation();
+    const navigate = useNavigate();
     const favorite = useSelector(getFavorite);
     return (
         <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
@@ -44,8 +48,11 @@ const ProfilePage = () => {
                                             <TurnedInIcon />
                                         </Avatar>
                                     </ListItemAvatar>
+
                                     <ListItemText
+                                        onClick={()=>navigate(`/movies/${movie.id}`,{state:{ from: location }})}
                                         primary={movie.title}
+                                        style={{cursor:"pointer"}}
                                     />
                                 </ListItem>
                             )}
