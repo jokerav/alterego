@@ -13,7 +13,6 @@ const favoriteSlise = createSlice({
             const {id} = payload;
             const index = state.findIndex(movie => movie.id === id);
             state.splice(index, 1);
-
         }
     }
 })
