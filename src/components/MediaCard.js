@@ -46,14 +46,11 @@ export default function MediaCard({movie}) {
             </CardContent>
             <CardActions>
                 <Button size="small">Details</Button>
-                { isLoggedIn && (
+                {isLoggedIn && (
                     favorite.includes(id) ?
-                    <Button size='small' onClick={() => removeMovie(id)}>Delete from favorite</Button> :
-                    <Button size="small" onClick={() => addMovie(id)}>To Favorite</Button>
-                )
-                }
-
-
+                        <Button size='small' onClick={() => removeMovie(id)}>Delete from favorite</Button> :
+                        <Button size="small" onClick={() => addMovie(id)}>To Favorite</Button>
+                )}
             </CardActions>
         </Card>
     );
