@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const PrivateRoute = ({ children }) => {
     const isLoggedin = useSelector(getLoggedIn);
-    return isLoggedin ? children : <Navigate to="/login" />;
+    return isLoggedin ? children : <Navigate to="/news" />;
 };
 export default PrivateRoute;
 
