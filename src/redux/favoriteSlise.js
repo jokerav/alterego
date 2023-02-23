@@ -10,9 +10,7 @@ const favoriteSlise = createSlice({
         },
         removeFromFavorite(state, {payload}){
             const {id} = payload;
-            console.log(`id: ${id}`)
             const index = state.indexOf(id);
-            console.log(`index: ${index}`)
             state.splice(index, 1);
         }
     }

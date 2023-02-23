@@ -7,6 +7,7 @@ import PopularPage from "./components/PopularPage"
 import ProtectedRoute from "./Routes/protectedRoute";
 import PrivateRoute from "./Routes/privateRoute";
 import TopRatedPage from "./components/topRatedPage";
+import ProfilePage from "./components/profile";
 
 function App() {
     return (
@@ -21,7 +22,7 @@ function App() {
                 <Route path='/news' element={<TopRatedPage/>}/>
                 <Route path='/profile' element={
                     <PrivateRoute>
-                        <p>PROFILE</p>
+                        <ProfilePage/>
                     </PrivateRoute>}/>
                 <Route path="*" element={<p>ErrorPage</p>}/>
             </Routes>
