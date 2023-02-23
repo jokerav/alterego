@@ -13,13 +13,11 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
-
+const Demo = styled('div')(({ theme }) => ({
+    backgroundColor: theme.palette.background.paper,
+}));
 const ProfilePage = () => {
     const favorite = useSelector(getFavorite);
-
-    const Demo = styled('div')(({ theme }) => ({
-        backgroundColor: theme.palette.background.paper,
-    }));
     return (
         <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
             <Grid container spacing={2}>
