@@ -7,15 +7,24 @@ import { useDispatch } from 'react-redux';
 import {loggedIn} from "../../redux/authSlice";
 import {useState} from "react";
 import { useNavigate } from "react-router-dom";
+
+
+
+let errorInput = false;
 export default function FormPropsTextFields() {
     const dispatch = useDispatch();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
+        if ((data.get("loginInput")) !== "admin" || (data.get("passwordInput")) !== "12345"){
+            errorInput=true;
+            setLogin('');
+            setPassword('');
+            return
+        }
         dispatch(loggedIn({
             login: data.get("loginInput"),
             password: data.get("passwordInput")
@@ -24,6 +33,7 @@ export default function FormPropsTextFields() {
         setPassword('');
         navigate('/profile')
     }
+
 
     return (
         <Box
@@ -38,18 +48,20 @@ export default function FormPropsTextFields() {
             <div>
                 <FormControl>
                     <TextField
+                        error={errorInput}
                         required
                         id="loginInput"
                         name="loginInput"
-                        label="login"
+                        label={errorInput?"Wrong login or password":"login"}
                         onChange={e => setLogin(e.target.value)}
                         value={login}
                     />
                     <TextField
                         required
+                        error={errorInput}
                         id="passwordInput"
                         name="passwordInput"
-                        label="Password"
+                        label={errorInput?"Wrong login or password":"Password"}
                         type="password"
                         autoComplete="current-password"
                         onChange={e => setPassword(e.target.value)}
