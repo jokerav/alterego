@@ -7,11 +7,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {addTofavorite, removeFromFavorite} from "../redux/favoriteSlise";
 import {useDispatch, useSelector} from "react-redux";
-import {getFavorite} from "../redux/selectors";
+import {getFavorite, getLoggedIn} from "../redux/selectors";
 
 export default function MediaCard({movie}) {
     const dispatch = useDispatch();
     const favorite = useSelector(getFavorite);
+    const isLoggedIn = useSelector(getLoggedIn);
     const {title, overview, backdrop_path, id} = movie;
     const imgPath = 'https://image.tmdb.org/t/p/w500';
 
@@ -21,7 +22,7 @@ export default function MediaCard({movie}) {
         }
         dispatch(addTofavorite({id}));
     }
-    const removeMovie = id =>{
+    const removeMovie = id => {
         if (!favorite.includes(id)) {
             return
         }
@@ -45,10 +46,15 @@ export default function MediaCard({movie}) {
             </CardContent>
             <CardActions>
                 <Button size="small">Details</Button>
-                {favorite.includes(id) ?
+                { isLoggedIn && (
+                    favorite.includes(id) ?
                     <Button size='small' onClick={() => removeMovie(id)}>Delete from favorite</Button> :
-                    <Button size="small" onClick={() => addMovie(id)}>To Favorite</Button>}
-        </CardActions>
-</Card>
-);
+                    <Button size="small" onClick={() => addMovie(id)}>To Favorite</Button>
+                )
+                }
+
+
+            </CardActions>
+        </Card>
+    );
 }
