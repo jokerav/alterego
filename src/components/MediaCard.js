@@ -15,19 +15,27 @@ export default function MediaCard({movie}) {
     const isLoggedIn = useSelector(getLoggedIn);
     const {title, overview, backdrop_path, id} = movie;
     const imgPath = 'https://image.tmdb.org/t/p/w500';
-
+    const chekMovieInFavorite = id => {
+        let inFavorite = false;
+        favorite.forEach(movie => {
+                if (movie.id === id) {
+                    inFavorite = true
+                }})
+        return inFavorite
+    }
     const addMovie = id => {
-        if (favorite.includes(id)) {
+        if (chekMovieInFavorite(id)) {
             return
         }
-        dispatch(addTofavorite({id}));
+        dispatch(addTofavorite({id, title}));
     }
     const removeMovie = id => {
-        if (!favorite.includes(id)) {
+        if (!chekMovieInFavorite(id)) {
             return
         }
         dispatch(removeFromFavorite({id}))
     }
+
 
     return (
         <Card sx={{maxWidth: 345}}>
@@ -47,7 +55,7 @@ export default function MediaCard({movie}) {
             <CardActions>
                 <Button size="small">Details</Button>
                 {isLoggedIn && (
-                    favorite.includes(id) ?
+                    chekMovieInFavorite(id) ?
                         <Button size='small' onClick={() => removeMovie(id)}>Delete from favorite</Button> :
                         <Button size="small" onClick={() => addMovie(id)}>To Favorite</Button>
                 )}

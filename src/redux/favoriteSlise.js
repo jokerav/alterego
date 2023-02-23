@@ -5,13 +5,15 @@ const favoriteSlise = createSlice({
     initialState,
     reducers:{
         addTofavorite(state, {payload}){
-            const {id} = payload;
-            state.push(id);
+            const {id,title} = payload;
+            state.push({id,title});
         },
         removeFromFavorite(state, {payload}){
+            console.log(payload);
             const {id} = payload;
-            const index = state.indexOf(id);
+            const index = state.findIndex(movie => movie.id === id);
             state.splice(index, 1);
+
         }
     }
 })
