@@ -46,11 +46,11 @@ function ResponsiveAppBar() {
 
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);
-        if ( e.currentTarget.tabIndex === -1) {
+        if ( e.target.innerText === "Logout") {
             dispatch(loggedOut());
             navigate('/')
         }
-        if (e.currentTarget.tabIndex === 0){
+        if (e.target.innerText === "Profile"){
             navigate('/profile')
         }
     };
