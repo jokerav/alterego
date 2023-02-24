@@ -144,9 +144,10 @@ function ResponsiveAppBar() {
                             </Button>
                         ))}
                     </Box>
-
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                        <Button sx={{my: 2, color: 'white', display: 'block'}}>Language</Button>
+                    </Box>
                     <Box sx={{flexGrow: 0}}>
-
                         {isLogin ? <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                 <Avatar>A</Avatar>
@@ -154,7 +155,6 @@ function ResponsiveAppBar() {
                         </Tooltip>:
                             <Button variant="contained" onClick={()=>navigate('/login')}>Log In</Button>
                         }
-
                         <Menu
                             sx={{mt: '45px'}}
                             id="menu-appbar"
