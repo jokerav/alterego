@@ -21,7 +21,6 @@ import {ReactComponent as EngFlag} from '../../img/UK-flag-min.svg';
 import {useTranslation} from "react-i18next";
 
 const pages = ['Main', 'News'];
-
 const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -31,7 +30,6 @@ function ResponsiveAppBar() {
         if (lang === 'en') {
             dispatch(setLang({lang: 'ua'}))
             i18n.changeLanguage('ua')
-
         }
         if (lang === 'ua') {
             dispatch(setLang({lang: 'en'}))
@@ -51,7 +49,6 @@ function ResponsiveAppBar() {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
-
     const handleCloseNavMenu = (e) => {
         setAnchorElNav(null);
         if (e.target.innerText === 'MAIN' || e.target.innerText === 'ГОЛОВНА') {
@@ -61,7 +58,6 @@ function ResponsiveAppBar() {
             navigate("/news")
         }
     };
-
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);
         if (e.target.innerText === "Logout") {
@@ -122,10 +118,9 @@ function ResponsiveAppBar() {
                         ))}
                     </Box>
 
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}} onClick={() => toggleLang()}>
-                        {lang === 'ua' ?
-                            <UkrFlag style={{height: "45px"}}/>
-                            : <EngFlag style={{height: "45px"}}/>}
+                    <Box sx={{flexGrow: 0, paddingRight:'40px', display: {xs: 'none', md: 'flex'}}} >
+                        <UkrFlag style={{height: "40px", width: "100px"}} onClick={() => toggleLang()}/>
+                        <EngFlag style={{height: "40px", width: "80px"}} onClick={() => toggleLang()}/>
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         {isLogin ? <Tooltip title="Open settings">
