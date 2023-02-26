@@ -119,8 +119,8 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{flexGrow: 0, paddingRight:'40px', display: {xs: 'none', md: 'flex'}}} >
-                        <UkrFlag style={{height: "40px", width: "100px"}} onClick={() => toggleLang()}/>
-                        <EngFlag style={{height: "40px", width: "80px"}} onClick={() => toggleLang()}/>
+                        <UkrFlag style={{height: "40px", width: "90px", cursor: 'pointer', marginRight:'20px'}} onClick={() => toggleLang()}/>
+                        <EngFlag style={{height: "40px", width: "80px", cursor: 'pointer'}} onClick={() => toggleLang()}/>
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         {isLogin ? <Tooltip title="Open settings">
