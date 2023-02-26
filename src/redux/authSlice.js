@@ -4,6 +4,7 @@ const USER = {login: "admin", password: "12345"}
 const initialState = {
     login: null,
     isLoggedin: false,
+    lang: "en",
 };
 const authSlice = createSlice({
     name: 'auth',
@@ -20,7 +21,11 @@ const authSlice = createSlice({
             state.isLoggedin = false;
             state.login = null;
         },
+        setLang(state, {payload}) {
+            const {lang} = payload;
+            state.lang = lang;
+        }
     },
 });
-export const {loggedIn, loggedOut} = authSlice.actions;
+export const {loggedIn, loggedOut, setLang} = authSlice.actions;
 export default authSlice.reducer;

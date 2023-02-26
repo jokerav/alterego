@@ -13,15 +13,36 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {useDispatch, useSelector} from "react-redux";
-import {loggedOut} from "../../redux/authSlice";
-import {getLoggedIn} from "../../redux/selectors";
-import { useNavigate } from "react-router-dom";
+import {loggedOut, setLang} from "../../redux/authSlice";
+import {getLoggedIn, getLang} from "../../redux/selectors";
+import {useNavigate} from "react-router-dom";
+import {ReactComponent as UkrFlag} from '../../img/ukraine-flag-min.svg';
+import {ReactComponent as EngFlag} from '../../img/UK-flag-min.svg';
+import {useTranslation} from "react-i18next";
+
 
 const pages = ['Main', 'News'];
+
 const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+
+    const {t, i18n} = useTranslation();
+    let lang = useSelector(getLang);
+    const toggleLang = () => {
+        if (lang === 'en') {
+            dispatch(setLang({lang: 'ua'}))
+            i18n.changeLanguage('ua')
+        }
+        if (lang === 'ua') {
+            dispatch(setLang({lang: 'en'}))
+            i18n.changeLanguage('en')
+        }
+
+    }
+
+    const [, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const dispatch = useDispatch();
     const isLogin = useSelector(getLoggedIn);
@@ -36,21 +57,21 @@ function ResponsiveAppBar() {
 
     const handleCloseNavMenu = (e) => {
         setAnchorElNav(null);
-        if (e.target.innerText === 'MAIN'){
+        if (e.target.innerText === 'MAIN' || e.target.innerText === 'ГОЛОВНА') {
             navigate('/')
         }
-        if ( e.target.innerText === "NEWS"){
+        if (e.target.innerText === "NEWS" || e.target.innerText === "НОВИНИ") {
             navigate("/news")
         }
     };
 
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);
-        if ( e.target.innerText === "Logout") {
+        if (e.target.innerText === "Logout") {
             dispatch(loggedOut());
             navigate('/')
         }
-        if (e.target.innerText === "Profile"){
+        if (e.target.innerText === "Profile") {
             navigate('/profile')
         }
     };
@@ -89,50 +110,8 @@ function ResponsiveAppBar() {
                         >
                             <MenuIcon/>
                         </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: {xs: 'block', md: 'none'},
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
                     </Box>
-                    <AdbIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: {xs: 'flex', md: 'none'},
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
+
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
                             <Button
@@ -140,20 +119,24 @@ function ResponsiveAppBar() {
                                 onClick={handleCloseNavMenu}
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
-                                {page}
+                                {t(page)}
                             </Button>
+
                         ))}
                     </Box>
-                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                        <Button sx={{my: 2, color: 'white', display: 'block'}}>Language</Button>
+
+                    <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}} onClick={() => toggleLang()}>
+                        {lang === 'ua' ?
+                            <UkrFlag style={{height: "45px"}}/>
+                            : <EngFlag style={{height: "45px"}}/>}
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         {isLogin ? <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
-                                <Avatar>A</Avatar>
-                            </IconButton>
-                        </Tooltip>:
-                            <Button variant="contained" onClick={()=>navigate('/login')}>Log In</Button>
+                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                    <Avatar>A</Avatar>
+                                </IconButton>
+                            </Tooltip> :
+                            <Button variant="contained" onClick={() => navigate('/login')}>Log In</Button>
                         }
                         <Menu
                             sx={{mt: '45px'}}
@@ -170,7 +153,6 @@ function ResponsiveAppBar() {
                             }}
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
-
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
