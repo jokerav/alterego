@@ -20,26 +20,23 @@ import {ReactComponent as UkrFlag} from '../../img/ukraine-flag-min.svg';
 import {ReactComponent as EngFlag} from '../../img/UK-flag-min.svg';
 import {useTranslation} from "react-i18next";
 
-
 const pages = ['Main', 'News'];
 
 const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
-
-
     const {t, i18n} = useTranslation();
-    let lang = useSelector(getLang);
+    const lang = useSelector(getLang);
     const toggleLang = () => {
         if (lang === 'en') {
             dispatch(setLang({lang: 'ua'}))
             i18n.changeLanguage('ua')
+
         }
         if (lang === 'ua') {
             dispatch(setLang({lang: 'en'}))
             i18n.changeLanguage('en')
         }
-
     }
 
     const [, setAnchorElNav] = React.useState(null);

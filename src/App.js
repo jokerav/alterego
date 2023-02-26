@@ -11,7 +11,9 @@ import ProfilePage from "./components/profile";
 import MovieDetails from "./components/MovieDetails";
 import ErrorPage from "./components/errorPage";
 
+
 function App() {
+
     return (
         <div>
             <ResponsiveAppBar/>
