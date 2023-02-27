@@ -29,7 +29,7 @@ i18n
                     "Profile":"Профіль",
                     "Logout": "Вийти",
                     'Favorite movie':'Улюблені фільми',
-                    "There's nothing here yet":"Тут покищо нічого нема ..."
+                    "There's nothing here yet":"Тут поки що нічого нема ..."
                 }
             }
         }
