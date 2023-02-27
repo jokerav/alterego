@@ -59,11 +59,11 @@ function ResponsiveAppBar() {
     };
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);
-        if (e.target.innerText === "Logout") {
+        if (e.target.innerText === "Logout" || e.target.innerText ==="Вийти") {
             dispatch(loggedOut());
             navigate('/')
         }
-        if (e.target.innerText === "Profile") {
+        if (e.target.innerText === "Profile" || e.target.innerText === "Профіль") {
             navigate('/profile')
         }
     };
@@ -147,7 +147,7 @@ function ResponsiveAppBar() {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                    <Typography textAlign="center">{t(setting)}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

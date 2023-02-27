@@ -16,12 +16,16 @@ i18n
                 translation: {
                     "Main": "Main",
                     "News": "news",
+                    "Profile":"Profile",
+                    "Logout": "Logout"
                 }
             },
             ua: {
                 translation: {
                     "Main": "Головна",
                     "News": "Новини",
+                    "Profile":"Профіль",
+                    "Logout": "Вийти"
                 }
             }
         }
