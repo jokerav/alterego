@@ -26,7 +26,7 @@ const ProfilePage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const favorite = useSelector(getFavorite);
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     return (
         <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
             <Grid container spacing={2}>
