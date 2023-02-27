@@ -16,6 +16,7 @@ import TurnedInIcon from '@mui/icons-material/TurnedIn';
 import {removeFromFavorite} from "../redux/favoriteSlise";
 import {useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 const Demo = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
@@ -25,12 +26,13 @@ const ProfilePage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const favorite = useSelector(getFavorite);
+    const {t, i18n} = useTranslation();
     return (
         <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                        Favorite movie
+                        {t("Favorite movie")}
                     </Typography>
                     {favorite.length>0?
                     <Demo>
@@ -59,7 +61,7 @@ const ProfilePage = () => {
                         </List>
                     </Demo>:
                         <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                            There's nothing here yet
+                            {t("There's nothing here yet")}
                         </Typography>}
                 </Grid>
             </Grid>

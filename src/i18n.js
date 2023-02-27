@@ -17,7 +17,9 @@ i18n
                     "Main": "Main",
                     "News": "news",
                     "Profile":"Profile",
-                    "Logout": "Logout"
+                    "Logout": "Logout",
+                    'Favorite movie':'Favorite movie',
+                    "There's nothing here yet":"There's nothing here yet ..."
                 }
             },
             ua: {
@@ -25,7 +27,9 @@ i18n
                     "Main": "Головна",
                     "News": "Новини",
                     "Profile":"Профіль",
-                    "Logout": "Вийти"
+                    "Logout": "Вийти",
+                    'Favorite movie':'Улюблені фільми',
+                    "There's nothing here yet":"Тут покищо нічого нема ..."
                 }
             }
         }
