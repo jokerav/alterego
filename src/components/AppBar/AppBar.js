@@ -16,30 +16,31 @@ import {useDispatch, useSelector} from "react-redux";
 import {loggedOut, setLang} from "../../redux/authSlice";
 import {getLoggedIn, getLang} from "../../redux/selectors";
 import {useNavigate} from "react-router-dom";
-import {ReactComponent as UkrFlag} from '../../img/ukraine-flag-min.svg';
-import {ReactComponent as EngFlag} from '../../img/UK-flag-min.svg';
+import {ReactComponent as UkrFlag} from '../../img/ua.svg';
+import {ReactComponent as EngFlag} from '../../img/gb.svg';
 import {useTranslation} from "react-i18next";
 
 const pages = ['Main', 'News'];
 const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
+    const dispatch = useDispatch();
     const {t, i18n} = useTranslation();
     const lang = useSelector(getLang);
-    const toggleLang = () => {
-        if (lang === 'en') {
-            dispatch(setLang({lang: 'ua'}))
-            i18n.changeLanguage('ua')
-        }
-        if (lang === 'ua') {
-            dispatch(setLang({lang: 'en'}))
-            i18n.changeLanguage('en')
-        }
+    const setUkrLang = ()=>{
+        if (lang === 'en'){
+        dispatch(setLang({lang: 'ua'}))
+        i18n.changeLanguage('ua')}
+    }
+    const setEngLang=()=>{
+        if (lang === 'ua'){
+        dispatch(setLang({lang: 'en'}))
+        i18n.changeLanguage('en')}
     }
 
     const [, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const dispatch = useDispatch();
+
     const isLogin = useSelector(getLoggedIn);
     const navigate = useNavigate();
 
@@ -119,8 +120,8 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{flexGrow: 0, paddingRight:'40px', display: {xs: 'none', md: 'flex'}}} >
-                        <UkrFlag style={{height: "40px", width: "90px", cursor: 'pointer', marginRight:'20px'}} onClick={() => toggleLang()}/>
-                        <EngFlag style={{height: "40px", width: "80px", cursor: 'pointer'}} onClick={() => toggleLang()}/>
+                        <UkrFlag style={{width: "20px", cursor: 'pointer', marginRight:'20px'}} onClick={() => setUkrLang()}/>
+                        <EngFlag style={{width: "20px", cursor: 'pointer'}} onClick={() => setEngLang()}/>
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         {isLogin ? <Tooltip title="Open settings">
