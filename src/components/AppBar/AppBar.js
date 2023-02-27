@@ -118,7 +118,7 @@ function ResponsiveAppBar() {
                     </Box>
 
                     <Box sx={{flexGrow: 0, paddingRight:'40px', display: {xs: 'none', md: 'flex'}}} >
-                        <UkrFlag style={{width: "20px", cursor: 'pointer', marginRight:'20px'}} onClick={() => setUkrLang()}/>
+                        <UkrFlag style={{width: "20px", cursor: 'pointer', marginRight:'15px'}} onClick={() => setUkrLang()}/>
                         <EngFlag style={{width: "20px", cursor: 'pointer'}} onClick={() => setEngLang()}/>
                     </Box>
                     <Box sx={{flexGrow: 0}}>
