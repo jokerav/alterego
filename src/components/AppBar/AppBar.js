@@ -25,8 +25,12 @@ const settings = ['Profile', 'Logout'];
 
 function ResponsiveAppBar() {
     const dispatch = useDispatch();
+    const isLogin = useSelector(getLoggedIn);
+    const navigate = useNavigate();
     const {t, i18n} = useTranslation();
     const lang = useSelector(getLang);
+    const [, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
     const setUkrLang = ()=>{
         if (lang === 'en'){
         dispatch(setLang({lang: 'ua'}))
@@ -37,12 +41,6 @@ function ResponsiveAppBar() {
         dispatch(setLang({lang: 'en'}))
         i18n.changeLanguage('en')}
     }
-
-    const [, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-    const isLogin = useSelector(getLoggedIn);
-    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
