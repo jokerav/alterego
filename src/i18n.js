@@ -16,20 +16,22 @@ i18n
                 translation: {
                     "Main": "Main",
                     "News": "news",
-                    "Profile":"Profile",
+                    "Profile": "Profile",
                     "Logout": "Logout",
-                    'Favorite movie':'Favorite movie',
-                    "There's nothing here yet":"There's nothing here yet ..."
+                    'Favorite movie': 'Favorite movie',
+                    "There's nothing here yet": "There's nothing here yet ...",
+                    "Log In": "Log In"
                 }
             },
             ua: {
                 translation: {
                     "Main": "Головна",
                     "News": "Новини",
-                    "Profile":"Профіль",
+                    "Profile": "Профіль",
                     "Logout": "Вийти",
-                    'Favorite movie':'Улюблені фільми',
-                    "There's nothing here yet":"Тут поки що нічого нема ..."
+                    'Favorite movie': 'Улюблені фільми',
+                    "There's nothing here yet": "Тут поки що нічого нема ...",
+                    "Log In": "Увійти"
                 }
             }
         }

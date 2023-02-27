@@ -127,7 +127,8 @@ function ResponsiveAppBar() {
                                     <Avatar>A</Avatar>
                                 </IconButton>
                             </Tooltip> :
-                            <Button variant="contained" onClick={() => navigate('/login')}>Log In</Button>
+                            <Button variant="contained" color="secondary"
+                                    onClick={() => navigate('/login')}>{t('Log In')}</Button>
                         }
                         <Menu
                             sx={{mt: '45px'}}
