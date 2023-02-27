@@ -113,7 +113,6 @@ function ResponsiveAppBar() {
                             >
                                 {t(page)}
                             </Button>
-
                         ))}
                     </Box>
 
@@ -123,7 +122,7 @@ function ResponsiveAppBar() {
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         {isLogin ? <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                <IconButton onClick={handleOpenUserMenu}  sx={{p: 0 }}>
                                     <Avatar>A</Avatar>
                                 </IconButton>
                             </Tooltip> :
@@ -145,6 +144,7 @@ function ResponsiveAppBar() {
                             }}
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
+
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
