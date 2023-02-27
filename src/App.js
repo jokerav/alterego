@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import {Routes, Route} from "react-router-dom";
-import ResponsiveAppBar from "./components/AppBar/AppBar";
+import ResponsiveAppBar from "./components/AppBar";
 import FormPropsTextFields from "./components/LoginForm";
 import PopularPage from "./components/PopularPage"
 import ProtectedRoute from "./Routes/protectedRoute";
