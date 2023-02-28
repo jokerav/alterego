@@ -20,7 +20,10 @@ i18n
                     "Logout": "Logout",
                     'Favorite movie': 'Favorite movie',
                     "There's nothing here yet": "There's nothing here yet ...",
-                    "Log In": "Log In"
+                    "Log In": "Log In",
+                    "Details": 'Details',
+                    "To Favorite": "To Favorite",
+                    "Delete from favorite": "Delete from favorite",
                 }
             },
             ua: {
@@ -29,9 +32,12 @@ i18n
                     "News": "Новини",
                     "Profile": "Профіль",
                     "Logout": "Вийти",
-                    'Favorite movie': 'Улюблені фільми',
+                    'Favorite movie': 'Обрані фільми',
                     "There's nothing here yet": "Тут поки що нічого нема ...",
-                    "Log In": "Увійти"
+                    "Log In": "Увійти",
+                    "Details": "Деталі",
+                    "To Favorite": "До обраного",
+                    "Delete from favorite": "Прибрати з обраного"
                 }
             }
         }

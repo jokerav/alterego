@@ -8,12 +8,14 @@ import Typography from '@mui/material/Typography';
 import {addTofavorite, removeFromFavorite} from "../redux/favoriteSlise";
 import {useDispatch, useSelector} from "react-redux";
 import {getFavorite, getLoggedIn} from "../redux/selectors";
-import { useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
+import {useTranslation} from "react-i18next";
 
 export default function MediaCard({movie}) {
     const location = useLocation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const {t} = useTranslation();
     const favorite = useSelector(getFavorite);
     const isLoggedIn = useSelector(getLoggedIn);
     const {title, overview, backdrop_path, id} = movie;
@@ -56,12 +58,12 @@ export default function MediaCard({movie}) {
             </CardContent>
             <CardActions>
                 <Button size="small" onClick={()=>navigate(`/movies/${movie.id}`,{state:{ from: location }})}>
-                    Details
+                    {t("Details")}
                 </Button>
                 {isLoggedIn && (
                     chekMovieInFavorite(id) ?
-                        <Button size='small' onClick={() => removeMovie(id)}>Delete from favorite</Button> :
-                        <Button size="small" onClick={() => addMovie(id)}>To Favorite</Button>
+                        <Button size='small' onClick={() => removeMovie(id)}>{t("Delete from favorite")}</Button> :
+                        <Button size="small" onClick={() => addMovie(id)}>{t("To Favorite")}</Button>
                 )}
             </CardActions>
         </Card>
