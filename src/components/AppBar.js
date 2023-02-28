@@ -26,9 +26,10 @@ const settings = ['Profile', 'Logout'];
 function ResponsiveAppBar() {
     const dispatch = useDispatch();
     const isLogin = useSelector(getLoggedIn);
+    const lang = useSelector(getLang);
     const navigate = useNavigate();
     const {t, i18n} = useTranslation();
-    const lang = useSelector(getLang);
+
     const [, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const setUkrLang = ()=>{
