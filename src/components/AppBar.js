@@ -32,15 +32,17 @@ function ResponsiveAppBar() {
 
     const [, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const setUkrLang = ()=>{
-        if (lang === 'en'){
-        dispatch(setLang({lang: 'ua'}))
-        i18n.changeLanguage('ua')}
+    const setUkrLang = () => {
+        if (lang === 'en') {
+            dispatch(setLang({lang: 'ua'}))
+            i18n.changeLanguage('ua')
+        }
     }
-    const setEngLang=()=>{
-        if (lang === 'ua'){
-        dispatch(setLang({lang: 'en'}))
-        i18n.changeLanguage('en')}
+    const setEngLang = () => {
+        if (lang === 'ua') {
+            dispatch(setLang({lang: 'en'}))
+            i18n.changeLanguage('en')
+        }
     }
 
     const handleOpenNavMenu = (event) => {
@@ -60,7 +62,7 @@ function ResponsiveAppBar() {
     };
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);
-        if (e.target.innerText === "Logout" || e.target.innerText ==="Вийти") {
+        if (e.target.innerText === "Logout" || e.target.innerText === "Вийти") {
             dispatch(loggedOut());
             navigate('/')
         }
@@ -117,13 +119,15 @@ function ResponsiveAppBar() {
                         ))}
                     </Box>
 
-                    <Box sx={{flexGrow: 0, paddingRight:'40px', display: {xs: 'none', md: 'flex'}}} >
-                        <UkrFlag style={{width: "20px", cursor: 'pointer', marginRight:'15px'}} onClick={() => setUkrLang()}/>
-                        <EngFlag style={{width: "20px", cursor: 'pointer'}} onClick={() => setEngLang()}/>
+                    <Box sx={{flexGrow: 0, paddingRight: '40px', display: {xs: 'none', md: 'flex'}}}>
+                        <UkrFlag style={{width: "20px", cursor: 'pointer', marginRight: '15px'}} onClick={() => setUkrLang()}
+
+                        />
+                        <EngFlag style={{width: "20px", cursor: 'pointer', }} onClick={() => setEngLang()}/>
                     </Box>
                     <Box sx={{flexGrow: 0}}>
                         {isLogin ? <Tooltip title="Open settings">
-                                <IconButton onClick={handleOpenUserMenu}  sx={{p: 0 }}>
+                                <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
                                     <Avatar>A</Avatar>
                                 </IconButton>
                             </Tooltip> :
