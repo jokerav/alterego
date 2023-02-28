@@ -5,9 +5,11 @@ import Pagination from "@mui/material/Pagination";
 import {setTopRatedPage} from "../redux/pagesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getTopRatedPage} from "../redux/selectors";
+import {useTranslation} from "react-i18next";
 
 const TopRatedPage = () => {
     const dispatch = useDispatch();
+    const {t} = useTranslation();
 
     const page = useSelector(getTopRatedPage);
     const onPaginationChange=(page)=>{
@@ -18,7 +20,7 @@ const TopRatedPage = () => {
 
     return (
         <div>
-            <h2 style={{textAlign:"center"}}>Top rated movies</h2>
+            <h2 style={{textAlign:"center"}}>{t("Top rated movies")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
             <Grid container spacing={3}>

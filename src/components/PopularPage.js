@@ -5,11 +5,13 @@ import Pagination from '@mui/material/Pagination';
 import {setPopularPage} from "../redux/pagesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getPopularPage} from "../redux/selectors";
+import {useTranslation} from "react-i18next";
 
 const PopularPage = () => {
     const dispatch = useDispatch();
-
     const page = useSelector(getPopularPage);
+    const {t} = useTranslation();
+
     const onPaginationChange=(page)=>{
         dispatch(setPopularPage({page}));
     }
@@ -18,7 +20,7 @@ const PopularPage = () => {
 
     return (
         <div>
-            <h2 style={{textAlign: "center"}}>Popular films</h2>
+            <h2 style={{textAlign: "center"}}>{t("Popular films")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
             <Grid container spacing={3}>
