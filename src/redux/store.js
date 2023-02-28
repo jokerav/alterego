@@ -7,7 +7,6 @@ import {
 import {filmsAPI} from "./filmsAPI";
 import authSlice from './authSlice';
 import pagesSlice from './pagesSlice';
-import favoriteSlise from './favoriteSlise'
 
 const authPersistConfig = {
     key: 'root',
@@ -17,7 +16,6 @@ const authPersistConfig = {
 const store = configureStore({
     reducer: {
         auth: persistReducer(authPersistConfig, authSlice),
-        favoriteSlise:favoriteSlise,
         pagesSlice,
         [filmsAPI.reducerPath]: filmsAPI.reducer
     },
