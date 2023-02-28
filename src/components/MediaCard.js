@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {addTofavorite, removeFromFavorite} from "../redux/favoriteSlise";
+import {addTofavorite, removeFromFavorite} from "../redux/authSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getFavorite, getLoggedIn} from "../redux/selectors";
 import {useLocation, useNavigate} from 'react-router-dom';

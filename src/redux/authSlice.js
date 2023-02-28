@@ -5,6 +5,7 @@ const initialState = {
     login: null,
     isLoggedin: false,
     lang: "en",
+    favorite: [],
 };
 const authSlice = createSlice({
     name: 'auth',
@@ -24,8 +25,17 @@ const authSlice = createSlice({
         setLang(state, {payload}) {
             const {lang} = payload;
             state.lang = lang;
-        }
+        },
+        addTofavorite(state, {payload}) {
+            const {id, title} = payload;
+            state.favorite.push({id, title});
+        },
+        removeFromFavorite(state, {payload}) {
+            const {id} = payload;
+            const index = state.favorite.findIndex(movie => movie.id === id);
+            state.favorite.splice(index, 1);
+        },
     },
 });
-export const {loggedIn, loggedOut, setLang} = authSlice.actions;
+export const {loggedIn, loggedOut, setLang, addTofavorite, removeFromFavorite} = authSlice.actions;
 export default authSlice.reducer;

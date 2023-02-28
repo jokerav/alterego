@@ -13,8 +13,8 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TurnedInIcon from '@mui/icons-material/TurnedIn';
-import {removeFromFavorite} from "../redux/favoriteSlise";
-import {useLocation } from 'react-router-dom';
+import {removeFromFavorite} from "../redux/authSlice";
+import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
