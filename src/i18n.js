@@ -25,8 +25,14 @@ i18n
                     "To Favorite": "To Favorite",
                     "Delete from favorite": "Delete from favorite",
                     "Back": "Back",
-                    "Popular films":"Popular films",
-                    "Top rated movies":"Top rated movies"
+                    "Popular films": "Popular films",
+                    "Top rated movies": "Top rated movies",
+                    "Oops ... Something went wrong. You can go back to the main": "Oops ... Something went wrong. You can go back to the main",
+                    "Back to main": "Back to main",
+                    "Wrong login or password": "Wrong login or password",
+                    "Login": "login",
+                    "Password": "Password",
+
                 }
             },
             ua: {
@@ -42,9 +48,13 @@ i18n
                     "To Favorite": "До обраного",
                     "Delete from favorite": "Прибрати з обраного",
                     "Back": "Назад",
-                    "Popular films":"Популярні фільми",
-                    "Top rated movies":"Найкращі за рейтингом",
-
+                    "Popular films": "Популярні фільми",
+                    "Top rated movies": "Найкращі за рейтингом",
+                    "Oops ... Something went wrong. You can go back to the main": "Ой ... Щось пішло геть не так, як задумано. Ви можете повернутися на головну",
+                    "Back to main": "На головну",
+                    "Wrong login or password": "Невірний логін або пароль",
+                    "Login": "Логін",
+                    "Password": "Пароль",
                 }
             }
         }

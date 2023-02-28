@@ -6,20 +6,22 @@ import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
 import {loggedIn} from "../redux/authSlice";
 import {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 let errorInput = false;
 export default function FormPropsTextFields() {
     const dispatch = useDispatch();
+    const {t} = useTranslation();
+    const navigate = useNavigate();
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState('');
-    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.target);
-        if ((data.get("loginInput")) !== "admin" || (data.get("passwordInput")) !== "12345"){
-            errorInput=true;
+        if ((data.get("loginInput")) !== "admin" || (data.get("passwordInput")) !== "12345") {
+            errorInput = true;
             setLogin('');
             setPassword('');
             return
@@ -50,7 +52,7 @@ export default function FormPropsTextFields() {
                         required
                         id="loginInput"
                         name="loginInput"
-                        label={errorInput?"Wrong login or password":"login"}
+                        label={errorInput ? t("Wrong login or password") : t("Login")}
                         onChange={e => setLogin(e.target.value)}
                         value={login}
                     />
@@ -59,13 +61,13 @@ export default function FormPropsTextFields() {
                         error={errorInput}
                         id="passwordInput"
                         name="passwordInput"
-                        label={errorInput?"Wrong login or password":"Password"}
+                        label={errorInput ? t("Wrong login or password") : t("Password")}
                         type="password"
                         autoComplete="current-password"
                         onChange={e => setPassword(e.target.value)}
                         value={password}
                     />
-                    <Button variant="contained" type='submit'>Log In</Button>
+                    <Button variant="contained" type='submit'>{t("Log In")}</Button>
                 </FormControl>
             </div>
 
