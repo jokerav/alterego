@@ -1,13 +1,16 @@
 import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import {useGetMovieDetailQuery} from "../redux/filmsAPI";
 import Button from '@mui/material/Button';
+import {useTranslation} from "react-i18next";
 
 
 const MovieDetails = () =>{
     const { movieId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-    const {data:movie = []
+    const {t} = useTranslation();
+    const {
+        data: movie = []
         // , isError, isLoading
     } = useGetMovieDetailQuery(movieId);
     const backLinkHref = location?.state?.from ?? '/';
@@ -22,7 +25,7 @@ const MovieDetails = () =>{
                 height="450px"
             />
             <p>{overview}</p>
-            <Button onClick={()=>navigate(backLinkHref)}>Back</Button>
+            <Button onClick={() => navigate(backLinkHref)}>{t("Back")}</Button>
         </div>
     )
 }

@@ -24,6 +24,7 @@ i18n
                     "Details": 'Details',
                     "To Favorite": "To Favorite",
                     "Delete from favorite": "Delete from favorite",
+                    "Back": "Back",
                 }
             },
             ua: {
@@ -37,7 +38,8 @@ i18n
                     "Log In": "Увійти",
                     "Details": "Деталі",
                     "To Favorite": "До обраного",
-                    "Delete from favorite": "Прибрати з обраного"
+                    "Delete from favorite": "Прибрати з обраного",
+                    "Back": "Назад",
                 }
             }
         }
