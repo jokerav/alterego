@@ -2,6 +2,7 @@ import {useParams, useNavigate, useLocation} from 'react-router-dom';
 import {useGetMovieDetailQuery} from "../redux/filmsAPI";
 import Button from '@mui/material/Button';
 import {useTranslation} from "react-i18next";
+import Container from "@mui/material/Container";
 
 
 const MovieDetails = () =>{
@@ -17,16 +18,17 @@ const MovieDetails = () =>{
     const imgPath = 'https://image.tmdb.org/t/p/w500';
     const { title, poster_path, overview } = movie;
     return (
-        <div>
-            <h1>{title}</h1>
+        <Container>
+            <h1 style={{textAlign: "center"}}>{title}</h1>
             <img
                 src={`${imgPath}${poster_path}`}
                 alt={`Poster to ${title}`}
                 height="450px"
+                style={{margin: "0 auto", display: "block"}}
             />
-            <p>{overview}</p>
+            <p style={{textAlign: "center"}}>{overview}</p>
             <Button onClick={() => navigate(backLinkHref)}>{t("Back")}</Button>
-        </div>
+        </Container>
     )
 }
 export default MovieDetails
