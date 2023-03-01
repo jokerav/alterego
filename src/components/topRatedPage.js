@@ -6,6 +6,7 @@ import {setTopRatedPage} from "../redux/pagesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getTopRatedPage} from "../redux/selectors";
 import {useTranslation} from "react-i18next";
+import Container from "@mui/material/Container";
 
 const TopRatedPage = () => {
     const dispatch = useDispatch();
@@ -19,29 +20,29 @@ const TopRatedPage = () => {
     const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
 
     return (
-        <div>
-            <h2 style={{textAlign:"center"}}>{t("Top rated movies")}</h2>
+        <Container>
+            <h2 style={{textAlign: "center"}}>{t("Top rated movies")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
                 {data?.results?.length > 0 && data.results.map(
-                        movieItem => {
-                            return (
-                                <Grid item xs={2}>
-                                    <MediaCard key={movieItem.id}
-                                               movie={movieItem}/>
-                                </Grid>
-                            )
-                        })}
+                    movieItem => {
+                        return (
+                            <Grid item xs={3}>
+                                <MediaCard key={movieItem.id}
+                                           movie={movieItem}/>
+                            </Grid>
+                        )
+                    })}
             </Grid>
             <Pagination
                 count={10}
                 color="primary"
                 defaultPage={page}
-                sx={{paddingTop:'40px', paddingBottom:'30px'}}
-                onChange={(_,page)=>onPaginationChange(page)}
+                sx={{paddingTop: '40px', paddingBottom: '30px'}}
+                onChange={(_, page) => onPaginationChange(page)}
             />
-        </div>
+        </Container>
     )
 }
 export default TopRatedPage

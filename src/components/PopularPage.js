@@ -6,6 +6,7 @@ import {setPopularPage} from "../redux/pagesSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getPopularPage} from "../redux/selectors";
 import {useTranslation} from "react-i18next";
+import Container from "@mui/material/Container";
 
 const PopularPage = () => {
     const dispatch = useDispatch();
@@ -19,15 +20,15 @@ const PopularPage = () => {
     const {data = [], isError, isLoading} = useGetPopularMoviesQuery(page);
 
     return (
-        <div>
+        <Container style={{padding: "20px 20px"}}>
             <h2 style={{textAlign: "center"}}>{t("Popular films")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
                 {data?.results?.length > 0 && data.results.map(
                     movieItem => {
                         return (
-                            <Grid item xs={2}>
+                            <Grid item xs={3}>
                                 <MediaCard key={movieItem.id}
                                            movie={movieItem}/>
                             </Grid>
@@ -38,10 +39,10 @@ const PopularPage = () => {
                 count={10}
                 color="primary"
                 defaultPage={page}
-                sx={{paddingTop:'40px', paddingBottom:'30px'}}
-                onChange={(_,page)=>onPaginationChange(page)}
+                sx={{paddingTop: '40px', paddingBottom: '30px'}}
+                onChange={(_, page) => onPaginationChange(page)}
             />
-        </div>
+        </Container>
     )
 }
 export default PopularPage
