@@ -2,7 +2,7 @@ import {useSelector, useDispatch} from "react-redux";
 import {getFavorite} from '../redux/selectors'
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
+import Container from "@mui/material/Container";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -18,6 +18,7 @@ import {useLocation} from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
+
 const Demo = styled('div')(({ theme }) => ({
     backgroundColor: theme.palette.background.paper,
 }));
@@ -28,7 +29,7 @@ const ProfilePage = () => {
     const favorite = useSelector(getFavorite);
     const {t} = useTranslation();
     return (
-        <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+        <Container sx={{ flexGrow: 1, maxWidth: 752 }}>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                     <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
@@ -65,7 +66,7 @@ const ProfilePage = () => {
                         </Typography>}
                 </Grid>
             </Grid>
-        </Box>
+        </Container>
     );
 }
 export default ProfilePage
