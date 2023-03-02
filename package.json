@@ -2,7 +2,7 @@
   "name": "alterego",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alterego-test-task.netlify.app",
+  "homepage": "https://jokerav.github.io/alterego",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -34,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
