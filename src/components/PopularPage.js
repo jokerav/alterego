@@ -21,8 +21,10 @@ const PopularPage = () => {
     const {data = [], isError, isLoading} = useGetPopularMoviesQuery(page);
 
     useEffect(()=>{
-            setvisibleMovie ([...data.results])
-    },[data])
+        if (data?.results?.length >0) {
+            setvisibleMovie([...data.results])
+        }
+    },[data.results])
 
     useEffect(()=>{
         setvisibleMovie([...visibleMovie])
