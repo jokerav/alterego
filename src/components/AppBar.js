@@ -52,13 +52,14 @@ function ResponsiveAppBar() {
         setAnchorElUser(event.currentTarget);
     };
     const handleCloseNavMenu = (e) => {
-        setAnchorElNav(null);
+
         if (e.target.innerText === 'MAIN' || e.target.innerText === 'ГОЛОВНА') {
             navigate('/')
         }
         if (e.target.innerText === "NEWS" || e.target.innerText === "НОВИНИ") {
             navigate("/news")
         }
+        setAnchorElNav(null);
     };
     const handleCloseUserMenu = (e) => {
         setAnchorElUser(null);

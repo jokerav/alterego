@@ -19,14 +19,14 @@ const TopRatedPage = () => {
     let [visibleMovie, setvisibleMovie] = useState([])
     const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
     useEffect(() => {
+        setvisibleMovie([...visibleMovie])
+    }, [visibleMovie])
+    useEffect(() => {
         if (data?.results?.length > 0) {
             setvisibleMovie([...data.results])
         }
     }, [data.results])
 
-    useEffect(() => {
-        setvisibleMovie([...visibleMovie])
-    }, [visibleMovie])
 
     const deleteVisibleMovie = id => {
         const newRes = visibleMovie.filter(mov => mov.id !== id);

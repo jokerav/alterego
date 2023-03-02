@@ -20,15 +20,16 @@ const PopularPage = () => {
     let [visibleMovie, setvisibleMovie] = useState([])
     const {data = [], isError, isLoading} = useGetPopularMoviesQuery(page);
 
-    useEffect(()=>{
-        if (data?.results?.length >0) {
+    useEffect(() => {
+        setvisibleMovie([...visibleMovie])
+    }, [visibleMovie])
+
+    useEffect(() => {
+        if (data?.results?.length > 0) {
             setvisibleMovie([...data.results])
         }
-    },[data.results])
+    }, [data.results])
 
-    useEffect(()=>{
-        setvisibleMovie([...visibleMovie])
-    },[visibleMovie])
 
     const deleteVisibleMovie = id => {
         const newRes = visibleMovie.filter(mov => mov.id !== id);
