@@ -18,9 +18,11 @@ const TopRatedPage = () => {
     }
     let [visibleMovie, setvisibleMovie] = useState([])
     const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
+
     useEffect(() => {
         setvisibleMovie([...visibleMovie])
     }, [visibleMovie])
+
     useEffect(() => {
         if (data?.results?.length > 0) {
             setvisibleMovie([...data.results])
@@ -33,7 +35,7 @@ const TopRatedPage = () => {
         visibleMovie = newRes
     }
     return (
-        <Container>
+        <Container style={{padding: "20px 20px"}}>
             <h2 style={{textAlign: "center"}}>{t("Top rated movies")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
