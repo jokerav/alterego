@@ -45,9 +45,10 @@ export default function MediaCard({movie,deleteVisibleMovie}) {
     return (
         <Card sx={{maxWidth: 345}}>
             <CardMedia
-                sx={{height: 140}}
+                sx={{height: 140, cursor: "pointer"}}
                 image={`${imgPath}${backdrop_path}`}
                 title={title}
+                onClick={()=>navigate(`/movies/${id}`)}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
