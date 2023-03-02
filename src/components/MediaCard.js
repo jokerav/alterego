@@ -10,8 +10,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {getFavorite, getLoggedIn} from "../redux/selectors";
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useTranslation} from "react-i18next";
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function MediaCard({movie}) {
+export default function MediaCard({movie,deleteVisibleMovie}) {
     const location = useLocation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -52,7 +53,7 @@ export default function MediaCard({movie}) {
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" style={{maxHeight:'200px', overflow:"hidden"}}>
                     {overview}
                 </Typography>
             </CardContent>
@@ -60,11 +61,16 @@ export default function MediaCard({movie}) {
                 <Button size="small" onClick={()=>navigate(`/movies/${movie.id}`,{state:{ from: location }})}>
                     {t("Details")}
                 </Button>
-                {isLoggedIn && (
+                {isLoggedIn &&
                     chekMovieInFavorite(id) ?
                         <Button size='small' onClick={() => removeMovie(id)}>{t("Delete from favorite")}</Button> :
                         <Button size="small" onClick={() => addMovie(id)}>{t("To Favorite")}</Button>
-                )}
+                }
+                <DeleteIcon
+                    style={{marginLeft:"auto", cursor: "pointer"}}
+                    color="primary"
+                    onClick={()=>deleteVisibleMovie(movie.id)}
+                />
             </CardActions>
         </Card>
     );
