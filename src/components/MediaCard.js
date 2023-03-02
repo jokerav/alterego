@@ -41,6 +41,7 @@ export default function MediaCard({movie,deleteVisibleMovie}) {
         }
         dispatch(removeFromFavorite({id}))
     }
+    console.log(isLoggedIn)
 
     return (
         <Card sx={{maxWidth: 345}}>
@@ -62,11 +63,11 @@ export default function MediaCard({movie,deleteVisibleMovie}) {
                 <Button size="small" onClick={()=>navigate(`/movies/${movie.id}`,{state:{ from: location }})}>
                     {t("Details")}
                 </Button>
-                {isLoggedIn &&
+                {isLoggedIn && (
                     chekMovieInFavorite(id) ?
                         <Button size='small' onClick={() => removeMovie(id)}>{t("Delete from favorite")}</Button> :
                         <Button size="small" onClick={() => addMovie(id)}>{t("To Favorite")}</Button>
-                }
+                )}
                 <DeleteIcon
                     style={{marginLeft:"auto", cursor: "pointer"}}
                     color="primary"
