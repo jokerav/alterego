@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/alterego/static/css/main.073c9b0a.css",
+    "main.js": "/alterego/static/js/main.7630175a.js",
+    "static/js/787.9d351457.chunk.js": "/alterego/static/js/787.9d351457.chunk.js",
+    "index.html": "/alterego/index.html",
+    "static/media/gb.svg": "/alterego/static/media/gb.ba1c7f5df0dd4173c951a644c65e02df.svg",
+    "static/media/ua.svg": "/alterego/static/media/ua.67a46bf793e26237ace0ff44b2eff6b6.svg",
+    "main.073c9b0a.css.map": "/alterego/static/css/main.073c9b0a.css.map",
+    "main.7630175a.js.map": "/alterego/static/js/main.7630175a.js.map",
+    "787.9d351457.chunk.js.map": "/alterego/static/js/787.9d351457.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.7630175a.js"
+  ]
+}
