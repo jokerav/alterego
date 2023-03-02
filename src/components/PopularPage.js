@@ -9,6 +9,7 @@ import {useTranslation} from "react-i18next";
 import Container from "@mui/material/Container";
 import {useEffect, useState} from "react";
 
+
 const PopularPage = () => {
     const dispatch = useDispatch();
     const page = useSelector(getPopularPage);
@@ -40,10 +41,10 @@ const PopularPage = () => {
             <h2 style={{textAlign: "center"}}>{t("Popular films")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
-            <Grid container spacing={2}>
+            <Grid container spacing={3} >
                 {visibleMovie.map(
                     movieItem =>
-                        <Grid item xs={3}>
+                        <Grid item xs={'auto'}>
                             <MediaCard
                                 key={movieItem.id}
                                 movie={movieItem}

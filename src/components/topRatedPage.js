@@ -39,18 +39,16 @@ const TopRatedPage = () => {
             <h2 style={{textAlign: "center"}}>{t("Top rated movies")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
-            <Grid container spacing={2}>
+            <Grid container spacing={3}>
                 {visibleMovie.map(
-                    movieItem => {
-                        return (
-                            <Grid item xs={3}>
-                                <MediaCard key={movieItem.id}
-                                           movie={movieItem}
-                                           deleteVisibleMovie={deleteVisibleMovie}
-                                />
-                            </Grid>
-                        )
-                    })}
+                    movieItem =>
+                        <Grid item xs="auto">
+                        <MediaCard key={movieItem.id}
+                                   movie={movieItem}
+                                   deleteVisibleMovie={deleteVisibleMovie}
+                        />
+                    </Grid>
+                )}
             </Grid>
             <Pagination
                 count={10}
