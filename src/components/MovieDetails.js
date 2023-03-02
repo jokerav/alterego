@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import {useTranslation} from "react-i18next";
 import Container from "@mui/material/Container";
 
-
 const MovieDetails = () =>{
     const { movieId } = useParams();
     const navigate = useNavigate();
