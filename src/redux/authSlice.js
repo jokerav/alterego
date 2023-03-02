@@ -4,7 +4,6 @@ const USER = {login: "admin", password: "12345"}
 const initialState = {
     login: null,
     isLoggedin: false,
-    // lang: "en",
     favorite: [],
 };
 const authSlice = createSlice({
@@ -22,10 +21,6 @@ const authSlice = createSlice({
             state.isLoggedin = false;
             state.login = null;
         },
-        // setLang(state, {payload}) {
-        //     const {lang} = payload;
-        //     state.lang = lang;
-        // },
         addTofavorite(state, {payload}) {
             const {id, title} = payload;
             state.favorite.push({id, title});
