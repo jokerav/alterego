@@ -2,7 +2,7 @@
   "name": "alterego",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jokerav.github.io/alterego",
+  "homepage": "https://alterego-test-task.netlify.app",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
