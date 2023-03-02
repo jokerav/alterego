@@ -54,7 +54,7 @@ export default function MediaCard({movie,deleteVisibleMovie}) {
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" style={{maxHeight:'200px', overflow:"hidden"}}>
+                <Typography variant="body2" color="text.secondary" style={{maxHeight:'180px', overflow:"hidden"}}>
                     {overview}
                 </Typography>
             </CardContent>
