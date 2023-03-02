@@ -13,8 +13,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {useDispatch, useSelector} from "react-redux";
-import {loggedOut, setLang} from "../redux/authSlice";
-import {getLoggedIn, getLang} from "../redux/selectors";
+import {loggedOut
+    // , setLang
+} from "../redux/authSlice";
+import {getLoggedIn
+    // , getLang
+} from "../redux/selectors";
 import {useNavigate} from "react-router-dom";
 import {ReactComponent as UkrFlag} from '../img/ua.svg';
 import {ReactComponent as EngFlag} from '../img/gb.svg';
