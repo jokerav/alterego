@@ -7,30 +7,45 @@ import {useDispatch, useSelector} from "react-redux";
 import {getTopRatedPage} from "../redux/selectors";
 import {useTranslation} from "react-i18next";
 import Container from "@mui/material/Container";
+import {useEffect, useState} from "react";
 
 const TopRatedPage = () => {
     const dispatch = useDispatch();
     const {t} = useTranslation();
-
     const page = useSelector(getTopRatedPage);
-    const onPaginationChange=(page)=>{
+    const onPaginationChange = (page) => {
         dispatch(setTopRatedPage({page}));
     }
-
+    let [visibleMovie, setvisibleMovie] = useState([])
     const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);
+    useEffect(() => {
+        if (data?.results?.length > 0) {
+            setvisibleMovie([...data.results])
+        }
+    }, [data.results])
 
+    useEffect(() => {
+        setvisibleMovie([...visibleMovie])
+    }, [visibleMovie])
+
+    const deleteVisibleMovie = id => {
+        const newRes = visibleMovie.filter(mov => mov.id !== id);
+        visibleMovie = newRes
+    }
     return (
         <Container>
             <h2 style={{textAlign: "center"}}>{t("Top rated movies")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
             <Grid container spacing={2}>
-                {data?.results?.length > 0 && data.results.map(
+                {visibleMovie.map(
                     movieItem => {
                         return (
                             <Grid item xs={3}>
                                 <MediaCard key={movieItem.id}
-                                           movie={movieItem}/>
+                                           movie={movieItem}
+                                           deleteVisibleMovie={deleteVisibleMovie}
+                                />
                             </Grid>
                         )
                     })}
