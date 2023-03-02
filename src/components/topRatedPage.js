@@ -15,6 +15,7 @@ const TopRatedPage = () => {
     const page = useSelector(getTopRatedPage);
     const onPaginationChange = (page) => {
         dispatch(setTopRatedPage({page}));
+        window.scrollTo({top:0, behavior:"smooth"});
     }
     let [visibleMovie, setvisibleMovie] = useState([])
     const {data = [], isError, isLoading} = useGetTopRatedMoviesQuery(page);

@@ -16,6 +16,7 @@ const PopularPage = () => {
     const {t} = useTranslation();
     const onPaginationChange = (page) => {
         dispatch(setPopularPage({page}));
+        window.scrollTo({top:0, behavior:"smooth"});
     }
 
     let [visibleMovie, setvisibleMovie] = useState([])
