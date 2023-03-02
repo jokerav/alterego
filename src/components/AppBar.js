@@ -26,23 +26,23 @@ const settings = ['Profile', 'Logout'];
 function ResponsiveAppBar() {
     const dispatch = useDispatch();
     const isLogin = useSelector(getLoggedIn);
-    const lang = useSelector(getLang);
+    // const lang = useSelector(getLang);
     const navigate = useNavigate();
     const {t, i18n} = useTranslation();
 
     const [, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const setUkrLang = () => {
-        if (lang === 'en') {
-            dispatch(setLang({lang: 'ua'}))
+        // if (lang === 'en') {
+        //     dispatch(setLang({lang: 'ua'}))
             i18n.changeLanguage('ua')
-        }
+        // }
     }
     const setEngLang = () => {
-        if (lang === 'ua') {
-            dispatch(setLang({lang: 'en'}))
+        // if (lang === 'ua') {
+        //     dispatch(setLang({lang: 'en'}))
             i18n.changeLanguage('en')
-        }
+        // }
     }
 
     const handleOpenNavMenu = (event) => {
