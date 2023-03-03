@@ -43,9 +43,6 @@ export default function FormPropsTextFields() {
 
             }}
             style={{  display: "flex",
-
-                // alignItems: "center",
-
                 justifyContent: "center"
             }}
             noValidate
