@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
@@ -8,6 +7,7 @@ import {loggedIn} from "../redux/authSlice";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import Container from "@mui/material/Container";
 
 let errorInput = false;
 export default function FormPropsTextFields() {
@@ -36,10 +36,17 @@ export default function FormPropsTextFields() {
     }
 
     return (
-        <Box
+        <Container
             component="form"
             sx={{
                 '& .MuiTextField-root': {m: 1, width: '25ch'},
+
+            }}
+            style={{  display: "flex",
+
+                // alignItems: "center",
+
+                justifyContent: "center"
             }}
             noValidate
             autoComplete="off"
@@ -71,6 +78,6 @@ export default function FormPropsTextFields() {
                 </FormControl>
             </div>
 
-        </Box>
+        </Container>
     );
 }
