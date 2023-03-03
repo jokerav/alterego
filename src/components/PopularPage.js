@@ -8,7 +8,7 @@ import {getPopularPage} from "../redux/selectors";
 import {useTranslation} from "react-i18next";
 import Container from "@mui/material/Container";
 import {useEffect, useState} from "react";
-
+import * as React from "react";
 
 const PopularPage = () => {
     const dispatch = useDispatch();
@@ -31,7 +31,6 @@ const PopularPage = () => {
             setvisibleMovie([...data.results])
         }
     }, [data.results])
-
 
     const deleteVisibleMovie = id => {
         const newRes = visibleMovie.filter(mov => mov.id !== id);
@@ -59,6 +58,9 @@ const PopularPage = () => {
                 color="primary"
                 defaultPage={page}
                 sx={{paddingTop: '40px', paddingBottom: '30px'}}
+                style={{  display: "flex",
+                    justifyContent: "center"
+                }}
                 onChange={(_, page) => onPaginationChange(page)}
             />
         </Container>
