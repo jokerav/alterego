@@ -56,6 +56,7 @@ const TopRatedPage = () => {
                 color="primary"
                 defaultPage={page}
                 sx={{paddingTop: '40px', paddingBottom: '30px'}}
+                style={{display: "flex", justifyContent: "center"}}
                 onChange={(_, page) => onPaginationChange(page)}
             />
         </Container>
