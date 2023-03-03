@@ -16,7 +16,7 @@ const PopularPage = () => {
     const {t} = useTranslation();
     const onPaginationChange = (page) => {
         dispatch(setPopularPage({page}));
-        window.scrollTo({top:0, behavior:"smooth"});
+        window.scrollTo({top: 0, behavior: "smooth"});
     }
 
     let [visibleMovie, setvisibleMovie] = useState([])
@@ -41,7 +41,7 @@ const PopularPage = () => {
             <h2 style={{textAlign: "center"}}>{t("Popular films")}</h2>
             {isLoading && <p>Loading...</p>}
             {isError && <p>Error...</p>}
-            <Grid container spacing={3} >
+            <Grid container spacing={3}>
                 {visibleMovie.map(
                     movieItem =>
                         <Grid item xs={'auto'}>
@@ -58,9 +58,7 @@ const PopularPage = () => {
                 color="primary"
                 defaultPage={page}
                 sx={{paddingTop: '40px', paddingBottom: '30px'}}
-                style={{  display: "flex",
-                    justifyContent: "center"
-                }}
+                style={{display: "flex", justifyContent: "center"}}
                 onChange={(_, page) => onPaginationChange(page)}
             />
         </Container>
