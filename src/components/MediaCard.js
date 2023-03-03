@@ -11,12 +11,22 @@ import {getFavorite, getLoggedIn} from "../redux/selectors";
 import {useLocation, useNavigate} from 'react-router-dom';
 import {useTranslation} from "react-i18next";
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import { makeStyles } from '@material-ui/core/styles';
+const useStyles = makeStyles({
+    root:{
+        // scale:1,
+        // filter: 'brightness(1)',
+        transition: "scale filter 500ms ease-in-out",
+        // transition: "filter 400ms easy-in-out",
+        "&:hover, &.Mui-focusVisible": { scale: 1.1, filter: 'brightness(0.6)', }
+    }
+})
 export default function MediaCard({movie,deleteVisibleMovie}) {
     const location = useLocation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const {t} = useTranslation();
+    const classes = useStyles();
     const favorite = useSelector(getFavorite);
     const isLoggedIn = useSelector(getLoggedIn);
     const {title, overview, backdrop_path, id} = movie;
@@ -41,7 +51,6 @@ export default function MediaCard({movie,deleteVisibleMovie}) {
         }
         dispatch(removeFromFavorite({id}))
     }
-    console.log(isLoggedIn)
 
     return (
         <Card sx={{maxWidth: 345}}>
@@ -50,6 +59,8 @@ export default function MediaCard({movie,deleteVisibleMovie}) {
                 image={`${imgPath}${backdrop_path}`}
                 title={title}
                 onClick={()=>navigate(`/movies/${id}`)}
+                className={classes.root}
+                // style={{"&:hover, &.Mui-focusVisible": { scale: 1.3 }}}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
